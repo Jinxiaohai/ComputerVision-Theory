@@ -1,0 +1,39 @@
+datafilename ./.obj2
+modelfilename ./.obj1
+datarepr PSET
+modelrepr PSET
+dataelements 0 3
+modelelements 0 3
+inittrans 0.955176 0.014134 0.295247 -0.016396 -43.872129 4.294850 -4.496416
+# This is a template for a parameter file for ICRP package 
+#
+#
+#iteration stops when difference between two last DMS is lesser then threshold
+threshold	0.0000001
+#
+#when global is set to 1, different initial rotations are used to find global minimum
+global		0
+#
+#depth of each initial iteration (doesn't matter in case global is set to 0)
+iidepth		5
+#
+#when fastercp is set to 1, faster closest points finding is used
+fastercp	0
+#
+#how large part of model shape will be searched (0.1=10%) in case fastercp is set to 1
+searchedpart	0.3
+#
+#translate data set to coinside the centers of mass of data and model sets
+centering       0
+#
+#eliminate not corresponding points
+eliminate	1
+#
+#limit for finding reciprocal points
+elimit		2
+#
+#when correspinfo is set to 1, it is assumed, that there is a file "corresp"
+#defining corresponding point pairs for measurement purposes
+correspinfo	0
+# faster range based closest point search
+rangesearch 	1

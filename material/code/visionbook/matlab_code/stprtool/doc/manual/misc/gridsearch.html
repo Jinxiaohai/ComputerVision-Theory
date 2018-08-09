@@ -1,0 +1,65 @@
+<html>
+<head>
+  <meta HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=ISO-8859-1">
+  <title>Contents.m</title>
+<link rel="stylesheet" type="text/css" href="../stpr.css">
+</head>
+<body>
+<table  border=0 width="100%" cellpadding=0 cellspacing=0><tr valign="baseline">
+<td valign="baseline" class="function"><b class="function">GRIDSEARCH</b>
+<td valign="baseline" align="right" class="function"><a href="../misc/index.html" target="mdsdir"><img border = 0 src="../up.gif"></a></table>
+  <p><b>Function minimization using grid search.</b></p>
+  <hr>
+<div class='code'><code>
+<span class=help></span><br>
+<span class=help>&nbsp;<span class=help_field>Synopsis:</span></span><br>
+<span class=help>&nbsp;&nbsp;[min_x,min_y,X,Y]=gridsearch(Min,Max,Grid,nloops,fun)</span><br>
+<span class=help>&nbsp;&nbsp;[min_x,min_y,X,Y]=gridsearch(Min,Max,Grid,nloops,fun,varargin)</span><br>
+<span class=help></span><br>
+<span class=help>&nbsp;<span class=help_field>Descritpion:</span></span><br>
+<span class=help>&nbsp;&nbsp;This&nbsp;function&nbsp;implements&nbsp;the&nbsp;grid&nbsp;search&nbsp;to&nbsp;find&nbsp;the&nbsp;minimum</span><br>
+<span class=help>&nbsp;&nbsp;of&nbsp;a&nbsp;given&nbsp;function&nbsp;y&nbsp;=&nbsp;fun(x),&nbsp;x&nbsp;\in&nbsp;X.</span><br>
+<span class=help>&nbsp;&nbsp;The&nbsp;domain&nbsp;X&nbsp;is&nbsp;discretized&nbsp;to&nbsp;the&nbsp;grid&nbsp;with&nbsp;minimal&nbsp;and&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;maximal&nbsp;point&nbsp;given&nbsp;by&nbsp;Min&nbsp;and&nbsp;Max&nbsp;respectively.&nbsp;Number&nbsp;of&nbsp;points&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;of&nbsp;the&nbsp;grid&nbsp;is&nbsp;given&nbsp;by&nbsp;Grid.&nbsp;The&nbsp;Max,&nbsp;Min&nbsp;and&nbsp;Grid&nbsp;are&nbsp;vectors</span><br>
+<span class=help>&nbsp;&nbsp;their&nbsp;entries&nbsp;correspond&nbsp;to&nbsp;individual&nbsp;dimensions&nbsp;of&nbsp;X.</span><br>
+<span class=help>&nbsp;&nbsp;After&nbsp;the&nbsp;mininum&nbsp;is&nbsp;found&nbsp;then&nbsp;the&nbsp;grid&nbsp;search&nbsp;is&nbsp;recursively&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;repeated&nbsp;with&nbsp;a&nbsp;finer&nbsp;grid.&nbsp;Number&nbsp;of&nbsp;nested&nbsp;loops&nbsp;is&nbsp;given&nbsp;by&nbsp;nloops.&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;The&nbsp;string&nbsp;fun&nbsp;determines&nbsp;function&nbsp;to&nbsp;be&nbsp;minimized.&nbsp;The&nbsp;function&nbsp;is&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;called&nbsp;as&nbsp;y=feval(fun,x,varargin{:}).</span><br>
+<span class=help>&nbsp;&nbsp;</span><br>
+<span class=help>&nbsp;<span class=help_field>Input:</span></span><br>
+<span class=help>&nbsp;&nbsp;Min&nbsp;[dim&nbsp;x&nbsp;1]&nbsp;Minimum&nbsp;point&nbsp;of&nbsp;the&nbsp;grid.</span><br>
+<span class=help>&nbsp;&nbsp;Max&nbsp;[dim&nbsp;x&nbsp;1]&nbsp;Maximum&nbsp;point&nbsp;of&nbsp;the&nbsp;grid.</span><br>
+<span class=help>&nbsp;&nbsp;Grid&nbsp;[dim&nbsp;x&nbsp;1]&nbsp;Number&nbsp;of&nbsp;point&nbsp;in&nbsp;the&nbsp;grid,&nbsp;i.e.&nbsp;grid&nbsp;density.</span><br>
+<span class=help>&nbsp;&nbsp;nloops&nbsp;[1x1]&nbsp;Number&nbsp;of&nbsp;nested&nbsp;loops&nbsp;of&nbsp;the&nbsp;grid&nbsp;search.</span><br>
+<span class=help>&nbsp;&nbsp;fun&nbsp;[string]&nbsp;Identifies&nbsp;the&nbsp;minimized&nbsp;function.</span><br>
+<span class=help>&nbsp;&nbsp;varargin&nbsp;[cell]&nbsp;Additional&nbsp;arguments&nbsp;of&nbsp;the&nbsp;minimized&nbsp;function.</span><br>
+<span class=help></span><br>
+<span class=help>&nbsp;<span class=help_field>Output:</span></span><br>
+<span class=help>&nbsp;&nbsp;min_x&nbsp;[dim&nbsp;x&nbsp;1]&nbsp;Found&nbsp;minimum.</span><br>
+<span class=help>&nbsp;&nbsp;min_y&nbsp;[1x1]&nbsp;min_y&nbsp;=&nbsp;fun(min_x).</span><br>
+<span class=help>&nbsp;&nbsp;X&nbsp;[dim&nbsp;x&nbsp;n]&nbsp;Points&nbsp;which&nbsp;the&nbsp;grid&nbsp;search&nbsp;checked&nbsp;through.</span><br>
+<span class=help>&nbsp;&nbsp;Y&nbsp;[1&nbsp;x&nbsp;n]&nbsp;Y(i)=fun(X(:,i)).</span><br>
+<span class=help></span><br>
+<span class=help>&nbsp;<span class=help_field>Example:</span></span><br>
+<span class=help>&nbsp;&nbsp;[min_x,min_y,X,Y]=gridsearch(0,10,10,3,'sin');</span><br>
+<span class=help>&nbsp;&nbsp;figure;&nbsp;grid&nbsp;on;&nbsp;hold&nbsp;on;</span><br>
+<span class=help>&nbsp;&nbsp;plot(X,Y,'.');</span><br>
+<span class=help>&nbsp;&nbsp;plot(min_x,min_y,'+r');</span><br>
+<span class=help></span><br>
+</code></div>
+  <hr>
+  <b>Source:</b> <a href= "../misc/list/gridsearch.html">gridsearch.m</a>
+  <p><b class="info_field">About: </b>  Statistical Pattern Recognition Toolbox<br>
+ (C) 1999-2003, Written by Vojtech Franc and Vaclav Hlavac<br>
+ <a href="http://www.cvut.cz">Czech Technical University Prague</a><br>
+ <a href="http://www.feld.cvut.cz">Faculty of Electrical Engineering</a><br>
+ <a href="http://cmp.felk.cvut.cz">Center for Machine Perception</a><br>
+
+  <p><b class="info_field">Modifications: </b> <br>
+  18-July-2003, VF<br>
+  17-July-2003, VF<br>
+
+</body>
+</html>

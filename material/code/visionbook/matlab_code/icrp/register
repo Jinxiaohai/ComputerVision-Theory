@@ -1,0 +1,104 @@
+#!/bin/sh
+#
+# This is a very simple shell script used to register (find suitable 
+# geometrical transformation) two sets of 3D points using 
+# Iterative Closest Reciprocal Point algorithm
+#
+# Jan Kybic, 1996
+#
+# This script may need some changes to work in your setup
+#
+# Usage: register datafilename.vtx modelfilename.vtx 
+#
+
+echo Register script started
+
+# Set a top of the ICRP tree 
+#BASE="/home/kybic/icrp"
+#BASE="/home/pavel/icrp"
+BASE="/home/krsek/Vyzkum/RecCad/icrp/"
+
+
+
+# Set TSET resp. PSET if you want to use resp. want not to use 
+# triangles as model/data internal represenation
+DATATYPE="TSET"
+MODELTYPE="TSET"
+
+
+# Vector to use for projections
+VECTOR="1 1 1"
+
+# Construct names of the executables
+MATCH="${BASE}/icp/match"
+VORONOI="${BASE}/voronoi/voronoi"
+PROJECT="${BASE}/project/project"
+WC="wc -l"
+
+DATAFILE=`dirname $1`/`basename $1 .vtx`
+MODELFILE=`dirname $2`/`basename $2 .vtx`
+RESULTFILE=`dirname $1`/`basename $1`-`basename $2`.res
+
+if [ ! -f ${DATAFILE}.vtx ] ; then
+  echo ERROR: Datafile not readable. ;
+  exit 1 ;
+  fi ;
+
+if [ ! -f ${MODELFILE}.vtx ] ; then
+  echo ERROR: Modelfile not readable. ;
+  exit 1 ;
+  fi ;
+
+echo Files checked - OK
+
+if [ ! ${MODELTYPE} = PSET ] ; then
+  if [ -f ${MODELFILE}.tri ] ; then
+    echo Triangulation file for model exists already. ;
+   else
+    echo Projecting modelfile into 2D ;
+    ${PROJECT} ${VECTOR} <${MODELFILE}.vtx >${MODELFILE}.2d ;
+    echo Computing triangulation ;
+    ${VORONOI} -t <${MODELFILE}.2d >${MODELFILE}.tri ;
+  fi ;
+fi
+
+if [ ! ${DATATYPE} = PSET ] ; then
+  if [ -f ${DATAFILE}.tri ] ; then
+    echo Triangulation file for data exists already. ;
+   else
+    echo Projecting datafile into 2D ;
+    ${PROJECT} ${VECTOR} <${DATAFILE}.vtx >${DATAFILE}.2d ;
+    echo Computing triangulation ;
+    ${VORONOI} -t <${DATAFILE}.2d >${DATAFILE}.tri ;
+  fi ;
+fi
+
+echo Building parameter file
+echo "datafilename ${DATAFILE}"    >match.prm
+echo "modelfilename ${MODELFILE}" >>match.prm
+echo "datarepr ${DATATYPE}"   >>match.prm
+echo "modelrepr ${MODELTYPE}" >>match.prm
+
+if [ ${DATATYPE} = PSET ] ; then
+  echo "dataelements " 0 `${WC} <${DATAFILE}.vtx` >>match.prm ;
+ else
+  echo "dataelements " `${WC} <${DATAFILE}.tri` `${WC} <${DATAFILE}.vtx` >>match.prm ;
+fi 
+
+if [ ${MODELTYPE} = PSET ] ; then
+  echo "modelelements " 0 `${WC} <${MODELFILE}.vtx` >>match.prm ;
+ else
+  echo "modelelements " `${WC} <${MODELFILE}.tri` `${WC} <${MODELFILE}.vtx` >>match.prm ;
+fi 
+
+cat ${BASE}/icp/template.prm >>match.prm
+    
+echo Performing registration
+${MATCH}
+
+mv match.res ${RESULTFILE}
+echo Results written into ${RESULTFILE}
+
+echo Registration script finished
+
+

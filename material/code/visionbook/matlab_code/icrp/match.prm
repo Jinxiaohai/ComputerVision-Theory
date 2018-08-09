@@ -1,0 +1,17 @@
+datafilename  /tmp/tp482244
+modelfilename /tmp/tp482245
+datarepr   PSET
+modelrepr  PSET
+dataelements  0 10201
+modelelements 0 10201
+
+threshold       0.0000100000
+global       0
+iidepth      0
+fastercp     0
+searchedpart 0.030000
+centering    0
+eliminate    1
+elimit       1
+correspinfo  0
+rangesearch  2

@@ -1,0 +1,106 @@
+This is a README file for 
+
+  Iterative Closest Reciprocal Point algorithm package
+
+What is ICRP?
+ICRP is a new algorithm used for 3D point sets matching/registration.
+The input to this algorithm is a set of 3D points called model and another
+set of 3D points called data. Both sets represent a surface of some 3D
+shape. The output of the algorithm is a geometrical
+transformation (rotation and translation) that, applied to data, yields 
+the best possible match with model, measured by some kind of error criteria 
+function, for example the sum of squares of the distances between model and
+data. It is perfectly concievable that some part of the model have no
+correspondence in data and vice versa. The ICRP algorithm tries to determine
+the corresponding points and disregards the rest.
+
+Acknowledgement
+The implementation of the ICRP comes from the diploma thesis project of 
+Ing. Pavel Kucera at the Faculty of Electrical Engineering, Czech Technical
+University. 
+
+The algorithm for computing 2D Delaunay triangulation comes from
+Steve J. Fortune: A Sweepline Algorithm for Voronoi Diagrams, Algorithmica
+2, p.153-174 (1987).
+    
+Principles of the algorithm
+The algorithm works iteratively. At each step there is a preliminary
+correspondence between the points of data and model. Then using the
+quaternions method, roughly equivalent of least square method, it finds the
+optimum transformation of data. Finally, new corespondence is calculated 
+by finding the closest member of model for each point of data and vice
+versa. 
+
+The key to eliminating not corresponding points is to find the closest point
+X from the set P to the point Y from the set Q. Then call Z the closest point
+from Q to X. If the distance between Y and Z is bigger than a limit, point Y
+will be marked as having no correspondence.
+
+Shape representations 
+The classical representation of 3D shapes is a set of points. Besides this,
+ICRP can also make use of a represantion of the shape as a set of triangles.
+The algorithm than takes into account no longer just isolated points but all
+the triangles as a whole. This improves the behaviour of the algorithm,
+mainly eliminates the need for too high a scanning resolution and prevents the
+algorithm from terminating prematurely by finding some local minumum due to
+the discrete nature of the point representation. The price to pay is an
+increased time of the calculation.
+
+Auxiliary programs are provided to construct a triangular representation
+from a set of points treated as vertexes of the triangles. The method is to
+project the 3D file into a plane using some randomly chosen vector and then
+find the Delaunay triangulation. 
+
+Installation and usage
+Untar the tar-file in a suitable place. Edit the main Makefile and the
+Makefiles in the subdirectories, should some changes be needed on your
+system. Edit the register script in the top directory. If you are using
+bash shell, all you need to do is to set BASE (the base directory),
+DATATYPE and MODELTYPE. If not, other changes might be necessary.
+
+For the first testing, set DATATYPE=PSET and MODELTYPE=PSET. From the top
+level directory, type make. After everything is correctly build, go to the
+data directory and type '../register cuthar2 cuthar1'
+The registration process should start and after about a minute, depending on
+the speed of your computer, you should get the results. As both sets of
+points come from the same measurement, you should get the identity
+transformation:
+		translation: 0 0 0 0
+		rotation:    1 0 0 0
+
+Parameters of the process are sent to the program match, performing the
+actual matching, through a parameter file match.prm. There is a template
+file template.prm that you can use to set various parameters.
+
+Further information can be found in the source code as well as in the thesis
+work.
+
+
+Data formats:
+The vtx files have a simple format - 1 line per point, 3 real numbers
+representing the x y z coordinates. 
+The tri files describe one triangle per line, giving the indices of the
+vertex points.
+
+Interpreting of the results:
+The algorithm gives us the translation and rotation. Rotation by angle f
+around an axis n is described by a vector
+( cos(f/2) , sin(f/2)nx , sin(f/2)ny , sin(f/2)nz )
+After rotating the data points, apply the translation simply by adding the
+given vector.
+
+Literature:
+Kucera Pavel, Registrace prostorovych ploch, diploma thesis, FEL CVUT
+Besl, McKay,  A Method for Registration of 3D Shapes, IEEE Transactions on
+              Pattern analysis and Machine Inteligence, Feb 1992
+Pajdla, Van Gool, matching of 3D curves using semidifferential invariants,
+	      5th conference on computer vision, Cambridge, MA, Jun 95
+Pajdla Tomas, Reconstruction of Solid Shape, Tech. Rep. K335-1995-100,
+	      CVUT, Praha 1995
+Sabata, Aggarwat, Estimation of Motion from a Pair of Range Images. Computer
+	      Vision Graphics and Image Processing, Image Understanding, Oct 95
+Horn, B.K.P,  Closed-form solution of absolute orientation using unit
+              quaternions
+
+  
+  

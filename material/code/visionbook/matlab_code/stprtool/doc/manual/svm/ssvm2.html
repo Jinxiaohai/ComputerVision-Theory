@@ -1,0 +1,78 @@
+<html>
+<head>
+  <meta HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=ISO-8859-1">
+  <title>Contents.m</title>
+<link rel="stylesheet" type="text/css" href="../stpr.css">
+</head>
+<body>
+<table  border=0 width="100%" cellpadding=0 cellspacing=0><tr valign="baseline">
+<td valign="baseline" class="function"><b class="function">SSVM2</b>
+<td valign="baseline" align="right" class="function"><a href="../svm/index.html" target="mdsdir"><img border = 0 src="../up.gif"></a></table>
+  <p><b>Single-class SVM with L2-soft margin.</b></p>
+  <hr>
+<div class='code'><code>
+<span class=help>&nbsp;</span><br>
+<span class=help>&nbsp;<span class=help_field>Synopsis:</span></span><br>
+<span class=help>&nbsp;&nbsp;model&nbsp;=&nbsp;ssvm2(X,options)</span><br>
+<span class=help></span><br>
+<span class=help>&nbsp;<span class=help_field>Description:</span></span><br>
+<span class=help>&nbsp;&nbsp;This&nbsp;function&nbsp;trains&nbsp;the&nbsp;single-class&nbsp;SVM&nbsp;with&nbsp;L2-soft&nbsp;margin.</span><br>
+<span class=help>&nbsp;&nbsp;The&nbsp;task&nbsp;is&nbsp;to&nbsp;find&nbsp;hyperplane&nbsp;passing&nbsp;through&nbsp;the&nbsp;origin</span><br>
+<span class=help>&nbsp;&nbsp;such&nbsp;that&nbsp;the&nbsp;input&nbsp;vectors&nbsp;lie&nbsp;on&nbsp;one&nbsp;side&nbsp;of&nbsp;the&nbsp;hyperplane.</span><br>
+<span class=help>&nbsp;&nbsp;The&nbsp;margin&nbsp;between&nbsp;data&nbsp;and&nbsp;the&nbsp;hypeplane&nbsp;should&nbsp;be&nbsp;maximized.</span><br>
+<span class=help>&nbsp;&nbsp;In&nbsp;the&nbsp;case&nbsp;of&nbsp;data&nbsp;its&nbsp;convex&nbsp;hull&nbsp;contains&nbsp;the&nbsp;origin&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;(non-separable&nbsp;data)&nbsp;the&nbsp;L2-soft&nbsp;margin&nbsp;relaxation&nbsp;is&nbsp;applied.</span><br>
+<span class=help>&nbsp;&nbsp;The&nbsp;hyperplane&nbsp;is&nbsp;sought&nbsp;for&nbsp;in&nbsp;the&nbsp;feature&nbsp;space&nbsp;induced&nbsp;by&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;the&nbsp;prescribed&nbsp;kernel.</span><br>
+<span class=help>&nbsp;&nbsp;</span><br>
+<span class=help>&nbsp;<span class=help_field>Input:</span></span><br>
+<span class=help>&nbsp;&nbsp;X&nbsp;[dim&nbsp;x&nbsp;num_data]&nbsp;Input&nbsp;vectors.</span><br>
+<span class=help>&nbsp;&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;options&nbsp;[struct]&nbsp;Control&nbsp;parameters:</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.ker&nbsp;[string]&nbsp;Kernel&nbsp;identifier.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.arg&nbsp;[1xnars]&nbsp;Kernel&nbsp;argument(s).</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.solver&nbsp;[string]&nbsp;Used&nbsp;quadratic&nbsp;programming&nbsp;solver;&nbsp;options&nbsp;are&nbsp;</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'mdm','kozinec'&nbsp;or&nbsp;'npa'&nbsp;(default).</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.tmax&nbsp;[1x1]&nbsp;Maximal&nbsp;number&nbsp;of&nbsp;iterations.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.tolabs&nbsp;[1x1]&nbsp;Absolute&nbsp;tolerance&nbsp;stopping&nbsp;condition.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.tolrel&nbsp;[1x1]&nbsp;Relative&nbsp;tolerance&nbsp;stopping&nbsp;condition.</span><br>
+<span class=help>&nbsp;&nbsp;</span><br>
+<span class=help>&nbsp;<span class=help_field>Output:</span></span><br>
+<span class=help>&nbsp;&nbsp;model&nbsp;[string]&nbsp;Hyperplane&nbsp;in&nbsp;the&nbsp;kernel&nbsp;feature&nbsp;sapce:</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.Alpha&nbsp;[nsv&nbsp;x&nbsp;1]&nbsp;Weights.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.b&nbsp;[1x1]&nbsp;Bias&nbsp;equal&nbsp;to&nbsp;0.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.sv.X&nbsp;[dim&nbsp;x&nbsp;nsv]&nbsp;Selected&nbsp;vectors.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.options&nbsp;[struct]&nbsp;Copy&nbsp;of&nbsp;input&nbsp;options.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.exitflag&nbsp;[1x1]&nbsp;Indicates&nbsp;which&nbsp;stopping&nbsp;condition&nbsp;was&nbsp;used:</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UB&nbsp;&lt;=&nbsp;tolabs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;&nbsp;exit_flag&nbsp;=&nbsp;1&nbsp;&nbsp;Abs.&nbsp;tolerance.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(UB-LB)/(LB+1)&nbsp;&lt;=&nbsp;tolrel&nbsp;&nbsp;-&gt;&nbsp;&nbsp;exit_flag&nbsp;=&nbsp;2&nbsp;&nbsp;Relative&nbsp;tolerance.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;&gt;=&nbsp;tmax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;&nbsp;exit_flag&nbsp;=&nbsp;0&nbsp;&nbsp;Number&nbsp;of&nbsp;iterations.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.UB&nbsp;[1x1]&nbsp;Upper&nbsp;bound&nbsp;on&nbsp;the&nbsp;optimal&nbsp;solution.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.LB&nbsp;[1x1]&nbsp;Lower&nbsp;bound&nbsp;on&nbsp;the&nbsp;optimal&nbsp;solution.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.t&nbsp;[1x1]&nbsp;Number&nbsp;of&nbsp;iterations.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.kercnt&nbsp;[1x1]&nbsp;Number&nbsp;of&nbsp;kernel&nbsp;evaluations.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.margin&nbsp;[1x1]&nbsp;Achieved&nbsp;margin.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.trnerr&nbsp;[1x1]&nbsp;Training&nbsp;error.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;.History&nbsp;[2x(t+1)]&nbsp;UB&nbsp;and&nbsp;LB&nbsp;with&nbsp;respect&nbsp;to&nbsp;number&nbsp;of&nbsp;iterations.</span><br>
+<span class=help>&nbsp;&nbsp;&nbsp;</span><br>
+<span class=help>&nbsp;<span class=help_field>Example:</span></span><br>
+<span class=help>&nbsp;&nbsp;load('scales','X');</span><br>
+<span class=help>&nbsp;&nbsp;model&nbsp;=&nbsp;ssvm2(X);</span><br>
+<span class=help>&nbsp;&nbsp;figure;&nbsp;axis([-1&nbsp;1&nbsp;-1&nbsp;1]);&nbsp;grid&nbsp;on;</span><br>
+<span class=help>&nbsp;&nbsp;ppatterns(X);&nbsp;ppatterns(model.sv.X,'ob',13);</span><br>
+<span class=help>&nbsp;&nbsp;pline(model);</span><br>
+<span class=help></span><br>
+<span class=help>&nbsp;<span class=also_field>See also </span><span class=also></span><br>
+<span class=help><span class=also>&nbsp;&nbsp;<a href = "../svm/svmclass.html" target="mdsbody">SVMCLASS</a>,&nbsp;SVM.</span><br>
+<span class=help></span><br>
+</code></div>
+  <hr>
+  <b>Source:</b> <a href= "../svm/list/ssvm2.html">ssvm2.m</a>
+  <p><b class="info_field">Modifications: </b> <br>
+ 15-jun-2004, VF<br>
+ 23-Jan-2004, VF<br>
+ 22-Jan-2004, VF<br>
+ 19-Oct-2003, VF<br>
+
+</body>
+</html>
