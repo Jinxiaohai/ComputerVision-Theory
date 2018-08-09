@@ -1,0 +1,17 @@
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}图像及其表达与性质}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}图像表达的若干概念}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}图像数字化}{3}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}采样}{3}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}量化}{3}{subsection.1.2.2}
+\contentsline {section}{\numberline {1.3}数字图像性质}{4}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}数字图像的度量和拓扑性质}{4}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}直方图}{7}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}熵}{7}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}图像的视觉感知}{8}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}图像品质}{8}{subsection.1.3.5}
+\contentsline {subsection}{\numberline {1.3.6}图像中的噪声}{9}{subsection.1.3.6}
+\contentsline {section}{\numberline {1.4}彩色图像}{11}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}色彩物理学}{11}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}人所感知的色彩}{11}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}摄像机论述}{12}{section.1.5}
+\contentsfinish 
