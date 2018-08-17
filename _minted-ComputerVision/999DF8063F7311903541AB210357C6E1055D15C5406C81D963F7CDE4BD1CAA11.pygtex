@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{n}{m} \PYG{o}{=} \PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat}\PYG{o}{::}\PYG{n}{eye}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mf}{32F}\PYG{n}{C2}\PYG{p}{);}
+\PYG{n}{printf}\PYG{p}{(}
+  \PYG{l+s}{\PYGZdq{}Element (3,3) is (\PYGZbs{}\PYGZpc{}f,\PYGZbs{}\PYGZpc{}f)}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+  \PYG{n}{m}\PYG{p}{.}\PYG{n}{at}\PYG{o}{\PYGZlt{}}\PYG{n}{cv}\PYG{o}{::}\PYG{n}{Vec2f}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{],}
+  \PYG{n}{m}\PYG{p}{.}\PYG{n}{at}\PYG{o}{\PYGZlt{}}\PYG{n}{cv}\PYG{o}{::}\PYG{n}{Vec2f}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{p}{]}
+  \PYG{p}{);}
+\end{Verbatim}

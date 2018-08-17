@@ -1,0 +1,58 @@
+\chapter{Mat和QImage之间的转换}
+\section{QImage类}
+在Qt包含的类中，其中\textbf{\color{magenta}QImage}类可能是最和计算机视觉最有关的类了，%
+QImage提供了像素访问和图像操作的众多函数，%
+我们可以很容易的完成QImage对象和OpenCV中Mat对象之间的转换。%
+
+\subsection{QImage的构造函数}
+QImage类包含了众多的构造函数允许我们创建QImage对象，%
+例如从文件中，从数据中，或者简单先创建一个空的QImage对象，%
+然后我们在后面再对每个像素进行操作赋值。%
+我们可以创建一个空QImage对象通过给定图像的大小和图片的格式，%
+\begin{cppcode}
+  QImage image(320, 240, QIMage::Format_RGB888);
+\end{cppcode}
+这条语句创建了一个空的RGB图像，%
+其中拥有320$\times$240个像素。
+
+\subsection{QImage从Mat中创建}
+QImage类提供了可以直接从Mat对象创建图片的构造函数，%
+但是在使用该构造函数之前我们必须对图像进行一丁点的转换，%
+这是因为对于Mat中的图像，%
+其格式是采用的BGR，而不是我们通常采用的RGB，%
+因此要进行格式的转换。%
+如下面的例子：
+\begin{cppcode}
+  cv::Mat mat = cv::imread("/home/xiaohai/Pictures/test.jpeg");
+  cv::cvtColor(mat, mat, CV_BGR2RGB);
+  QImage image(mat.data, mat.cols, mat.rows, QImage::Format_RGB888);
+\end{cppcode}
+其中cv::cvtColor()函数可以完成图像彩色空间的转换。
+
+然而上面的方式并不是推荐的方式，%
+我们可以采用下面的构造函数去创建。%
+该构造函数需要一个\textbf{\color{magenta}bytesPerLine}参数，%
+而该参数的值就是Mat对象中的\textbf{\color{magenta}step}值，%
+完整的例子如下：
+\begin{cppcode}
+  cv::Mat mat = cv::imread("/home/xiaohai/Pictures/test.jpeg");
+  cv::cvtColor(mat, mat, CV_BGR2RGB);
+  QImage image(mat.data, mat.cols, mat.rows, mat.step, QImage::Format_RGB888);
+\end{cppcode}
+
+\subsection{QImage对象转Mat对象}
+QImage类包含大量的成员函数，%
+这些大量的成员函数可以完成图像的操作和处理，%
+如将QImage对象转换称Mat对象，
+\begin{cppcode}
+  QImage image("/home/xiaohai/Pictures/test.jpeg");
+  image = image.convertToFormat(QImage::Format_RGB888);
+  Mat mat = Mat(image.height(), image.width(), CV_8UC3, image.bits(), image.bytesPerLine());
+\end{cppcode}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

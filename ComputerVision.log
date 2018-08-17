@@ -1,6 +1,6 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.4.17)  9 AUG 2018 13:56
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.4.17)  17 AUG 2018 14:43
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **ComputerVision.tex
 (./ComputerVision.tex
@@ -1849,7 +1849,202 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '4.03'
 Library (tcolorbox): 'tcbtheorems.code.tex' version '4.03'
 )
 \c@tcb@cnt@algo=\count280
-) (./ComputerVision.aux)
+ (/opt/texlive/install/2017/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2016/10/31 v2.4.1 Yet another Pygments shim for LaTeX
+
+(/opt/texlive/install/2017/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2016/09/02 v1.2.1 fvextra - extensions and patches for fancyvr
+b
+
+(/opt/texlive/install/2017/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count281
+\FV@InFile=\read4
+\FV@TabBox=\box83
+\c@FancyVerbLine=\count282
+\FV@StepNumber=\count283
+\FV@OutFile=\write6
+)
+(/opt/texlive/install/2017/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+
+(/opt/texlive/install/2017/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/opt/texlive/install/2017/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+))
+\c@FV@TrueTabGroupLevel=\count284
+\c@FV@TrueTabCounter=\count285
+\FV@TabBox@Group=\box84
+\FV@TmpLength=\skip97
+\c@FV@HighlightLinesStart=\count286
+\c@FV@HighlightLinesStop=\count287
+\FV@BreakIndent=\dimen314
+\FV@BreakSymbolSepLeft=\dimen315
+\FV@BreakSymbolSepRight=\dimen316
+\FV@BreakSymbolIndentLeft=\dimen317
+
+*************************************************
+* fontspec warning: "script-not-exist"
+* 
+* Font 'FandolFang-Regular' does not contain script 'CJK'.
+*************************************************
+\g__fontspec_family_FandolFang-Regular_int=\count288
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'FandolFang-Regular(0)' created for font 'FandolFang-Regular'
+. with options [Script={CJK},Extension={.otf}].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.: <->"[FandolFang-Regular.otf]/OT"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+.................................................
+\FV@BreakSymbolIndentRight=\dimen318
+\c@FancyVerbLineBreakLast=\count289
+\FV@LineBox=\box85
+\FV@LineIndentBox=\box86
+) (/opt/texlive/install/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count290
+\float@exts=\toks44
+\float@box=\box87
+\@float@everytoks=\toks45
+\@floatcapt=\box88
+)
+(/opt/texlive/install/2017/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 67.
+)
+(/opt/texlive/install/2017/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2010/10/22 v0.4 Testing for the operating system
+
+(/opt/texlive/install/2017/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
+)
+runsystem(uname -s > "ComputerVision.w18")...executed.
+
+
+(./ComputerVision.w18)
+runsystem(rm -- "ComputerVision.w18")...executed.
+
+)
+(/opt/texlive/install/2017/texmf-dist/tex/generic/xstring/xstring.sty
+(/opt/texlive/install/2017/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write7
+\integerpart=\count291
+\decimalpart=\count292
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+(/opt/texlive/install/2017/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip98
+\fb@frw=\dimen319
+\fb@frh=\dimen320
+\FrameRule=\dimen321
+\FrameSep=\dimen322
+)
+\minted@appexistsfile=\read5
+\minted@bgbox=\box89
+\minted@code=\write8
+\c@minted@FancyVerbLineTemp=\count293
+\c@minted@pygmentizecounter=\count294
+\@float@every@listing=\toks46
+\c@listing=\count295
+)
+runsystem(mkdir -p _minted-ComputerVision)...executed.
+
+)
+runsystem(which pygmentize && touch ComputerVision.aex)...executed.
+
+runsystem(rm ComputerVision.aex)...executed.
+
+
+(./ComputerVision.aux)
 \openout1 = `ComputerVision.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -1956,8 +2151,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \textheight=625.96062pt
 * \oddsidemargin=-12.51921pt
 * \evensidemargin=-12.51921pt
-* \topmargin=-31.58926pt
-* \headheight=12.0pt
+* \topmargin=-34.58926pt
+* \headheight=15.0pt
 * \headsep=19.8738pt
 * \topskip=12.0pt
 * \footskip=30.0pt
@@ -1974,7 +2169,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box83
+\AtBeginShipoutBox=\box90
 Package hyperref Info: Link coloring ON on input line 5.
 (/opt/texlive/install/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1982,19 +2177,19 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/opt/texlive/install/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count281
+\c@section@level=\count296
 )
 LaTeX Info: Redefining \ref on input line 5.
 LaTeX Info: Redefining \pageref on input line 5.
 LaTeX Info: Redefining \nameref on input line 5.
 (./ComputerVision.out) (./ComputerVision.out)
-\@outlinefile=\write6
-\openout6 = `ComputerVision.out'.
+\@outlinefile=\write9
+\openout9 = `ComputerVision.out'.
 
 
 ABD: EveryShipout initializing macros (./ComputerVision.toc)
-\tf@toc=\write7
-\openout7 = `ComputerVision.toc'.
+\tf@toc=\write10
+\openout10 = `ComputerVision.toc'.
 
 
 (./图像及其表达与性质/图像及其表达与性质.tex [1
@@ -2011,7 +2206,7 @@ ABD: EveryShipout initializing macros (./ComputerVision.toc)
 * 
 * Font 'FandolHei-Regular' does not contain script 'CJK'.
 *************************************************
-\g__fontspec_family_FandolHei-Regular_int=\count282
+\g__fontspec_family_FandolHei-Regular_int=\count297
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2037,94 +2232,154 @@ LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not
  available
 (Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
  input line 101.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[3]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
+ [3]
 [4]
 Underfull \vbox (badness 1199) has occurred while \output is active []
 
+ [5]
+[6] [7] [8] [9] [10] [11]) (./图像及其数学与物理背景/图像及其数学与物理背景.tex [12]
+第二章
+[13
+
+] [14]
+File: 图像及其数学与物理背景/Figures/卷积x.png Graphic file (type QTm)
+ <use  "图像及其数学与物理背景/Figures/卷积x.png" >
+File: 图像及其数学与物理背景/Figures/卷积y.png Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/卷积y.png" >
+File: 图像及其数学与物理背景/Figures/卷积1.png Graphic file (type QTm)
+ <use  "图像及其数学与物理背景/Figures/卷积1.png" >
+File: 图像及其数学与物理背景/Figures/卷积2.png Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/卷积2.png" >
+File: 图像及其数学与物理背景/Figures/卷积3.png Graphic file (type QTm)
+ <use  "图像及其数学与物理背景/Figures/卷积3.png" >
+File: 图像及其数学与物理背景/Figures/卷积4.png Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/卷积4.png" > [15] [16] [17] [18]
+File: 图像及其数学与物理背景/Figures/原理1.png Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/原理1.png" >
+File: 图像及其数学与物理背景/Figures/原理2.png Graphic file (type QTm)
+ <use  "图像及其数学与物理背景/Figures/原理2.png" >
+File: 图像及其数学与物理背景/Figures/色子1.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/色子1.jpg" >
+File: 图像及其数学与物理背景/Figures/色子2.jpg Graphic file (type QTm)
+ <use  "图像及其数学与物理背景/Figures/色子2.jpg" >
+File: 图像及其数学与物理背景/Figures/色子3.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/色子3.jpg" >
+File: 图像及其数学与物理背景/Figures/色子4.jpg Graphic file (type QTm)
+ <use  "图像及其数学与物理背景/Figures/色子4.jpg" >
+File: 图像及其数学与物理背景/Figures/色子5.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/色子5.jpg" > [19] [20] [21]
+File: 图像及其数学与物理背景/Figures/图像卷积原理1.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/图像卷积原理1.jpg" >
+File: 图像及其数学与物理背景/Figures/图像卷积原理2.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/图像卷积原理2.jpg" >
+File: 图像及其数学与物理背景/Figures/图像卷积原理3.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/图像卷积原理3.jpg" > [22]
+File: 图像及其数学与物理背景/Figures/图像卷积原理4.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/图像卷积原理4.jpg" > [23]
+File: 图像及其数学与物理背景/Figures/图像卷积原理5.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/图像卷积原理5.jpg" >
+File: 图像及其数学与物理背景/Figures/图像卷积原理6.jpg Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/图像卷积原理6.jpg" >
+File: 图像及其数学与物理背景/Figures/图像卷积原理7 Graphic file (type QTm)
+
+<use  "图像及其数学与物理背景/Figures/图像卷积原理7" > [24]) (./OpenCV大数组类型/OpenCV大数组类型.tex
+[25]
+第三章
+\openout6 = `ComputerVision.pyg'.
+
+(./_minted-ComputerVision/default-pyg-prefix.pygstyle)
+(./_minted-ComputerVision/default.pygstyle)
+(./_minted-ComputerVision/FD7796AD4F79D52BF37D9151C1CE0B35055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 4.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 4.
+)
+\openout6 = `ComputerVision.pyg'.
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+(./_minted-ComputerVision/999DF8063F7311903541AB210357C6E1055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex [26
 
-[5]
+])
+\openout6 = `ComputerVision.pyg'.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[6]
+(./_minted-ComputerVision/EF876FB9309B0AF8F8A3747DFD20CCF4055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex [27])
+\openout6 = `ComputerVision.pyg'.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[7]
+(./_minted-ComputerVision/5CEE427DA443B0A7D6F65F2BC483CB85055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/m/it' undefined
+(Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 
+11.
 
-[8]
+[28])
+\openout6 = `ComputerVision.pyg'.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[9]
+(./_minted-ComputerVision/58A3AF4EECFDCD9A55BF09993AC638B3055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex [29])) (./Mat2QImage/Mat2QImage.tex [30]
+第四章
+\openout6 = `ComputerVision.pyg'.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[10]
+(./_minted-ComputerVision/2CD5586D1701DB967C9F05938F0168E4055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex)
+\openout6 = `ComputerVision.pyg'.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[11])
+(./_minted-ComputerVision/4C19E0031C244B1D79C7CB6D02E341FE055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex)
+\openout6 = `ComputerVision.pyg'.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 12.
+(./_minted-ComputerVision/5B4626488E797CA675298C04A18BCD98055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex [31
+
+])
+\openout6 = `ComputerVision.pyg'.
+
+
+(./_minted-ComputerVision/3FC581E2480C9254E41FD35B68D471A4055D15C5406C81D963F7C
+DE4BD1CAA11.pygtex)) [32]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 19.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 19.
  (./ComputerVision.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 12.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 12.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 19.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 19.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+runsystem(rm ComputerVision.pyg)...executed.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 19.
  ) 
 Here is how much of TeX's memory you used:
- 41237 strings out of 493005
- 842115 string characters out of 6133756
- 895898 words of memory out of 5000000
- 44689 multiletter control sequences out of 15000+600000
- 8234 words of font info for 63 fonts, out of 8000000 for 9000
+ 43856 strings out of 493005
+ 901284 string characters out of 6133756
+ 1002075 words of memory out of 5000000
+ 47136 multiletter control sequences out of 15000+600000
+ 8314 words of font info for 73 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 58i,14n,90p,10420b,1142s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,18n,90p,10420b,1142s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ComputerVision.pdf (12 pages).
+Output written on ComputerVision.pdf (32 pages).

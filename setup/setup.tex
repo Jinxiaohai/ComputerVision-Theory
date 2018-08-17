@@ -5,6 +5,7 @@
 % 颜色控制
 \usepackage[table]{xcolor}
 \definecolor{seagreen}{RGB}{46, 139, 87}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
 
 % 新命令
 \newcommand{\dash}{------} %中文破折号
@@ -18,6 +19,7 @@
 \fancyhead[ER,OL]{\slshape \color{magenta} \rightmark}
 \fancyhead[EL,OR]{\slshape \color{magenta} \leftmark}
 \fancypagestyle{plain}{\renewcommand{\headrulewidth}{0.1pt}\fancyhf{}}
+\setlength{\headheight}{15pt}
 
 % 版面几何设置
 \usepackage[paperwidth=185mm,paperheight=260mm,text={148mm,220mm},left=21mm,right=21mm,top=25.5mm]{geometry}
@@ -78,6 +80,19 @@
   attach boxed title to top left = {yshift = -3mm, xshift = 5mm},
   boxed title style = {sharp corners},
   fonttitle = \sffamily\bfseries, separator sign = {).~}}{qst}
+
+% C++语言控制
+\usepackage{minted}
+\newminted{cpp}{mathescape,
+  linenos,
+  breaklines,
+  breakanywhere,
+  numbersep=5pt,
+  gobble=2,
+  frame=lines,
+  framesep=2mm}
+
+
 
 
 

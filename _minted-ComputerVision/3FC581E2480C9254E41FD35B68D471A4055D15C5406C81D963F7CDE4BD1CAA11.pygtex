@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{QImage} \PYG{n+nf}{image}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/home/xiaohai/Pictures/test.jpeg\PYGZdq{}}\PYG{p}{);}
+\PYG{n}{image} \PYG{o}{=} \PYG{n}{image}\PYG{p}{.}\PYG{n}{convertToFormat}\PYG{p}{(}\PYG{n}{QImage}\PYG{o}{::}\PYG{n}{Format\PYGZus{}RGB888}\PYG{p}{);}
+\PYG{n}{Mat} \PYG{n}{mat} \PYG{o}{=} \PYG{n}{Mat}\PYG{p}{(}\PYG{n}{image}\PYG{p}{.}\PYG{n}{height}\PYG{p}{(),} \PYG{n}{image}\PYG{p}{.}\PYG{n}{width}\PYG{p}{(),} \PYG{n}{CV\PYGZus{}8UC3}\PYG{p}{,} \PYG{n}{image}\PYG{p}{.}\PYG{n}{bits}\PYG{p}{(),} \PYG{n}{image}\PYG{p}{.}\PYG{n}{bytesPerLine}\PYG{p}{());}
+\end{Verbatim}

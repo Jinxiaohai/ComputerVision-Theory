@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{QImage} \PYG{n+nf}{image}\PYG{p}{(}\PYG{l+m+mi}{320}\PYG{p}{,} \PYG{l+m+mi}{240}\PYG{p}{,} \PYG{n}{QIMage}\PYG{o}{::}\PYG{n}{Format\PYGZus{}RGB888}\PYG{p}{);}
+\end{Verbatim}

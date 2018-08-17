@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}opencv2/opencv.hpp\PYGZdq{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{argc}\PYG{p}{,} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{argv}\PYG{p}{[])\PYGZob{}}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{n}{grayimg}\PYG{p}{(}\PYG{l+m+mi}{600}\PYG{p}{,} \PYG{l+m+mi}{800}\PYG{p}{,} \PYG{n}{CV\PYGZus{}8UC1}\PYG{p}{);}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{n}{colorimg}\PYG{p}{(}\PYG{l+m+mi}{600}\PYG{p}{,} \PYG{l+m+mi}{800}\PYG{p}{,} \PYG{n}{CV\PYGZus{}8UC3}\PYG{p}{);}
+
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{grayimg}\PYG{p}{.}\PYG{n}{rows}\PYG{p}{;} \PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{!=} \PYG{n}{grayimg}\PYG{p}{.}\PYG{n}{cols}\PYG{p}{;} \PYG{o}{++}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+      \PYG{n}{grayimg}\PYG{p}{.}\PYG{n}{at}\PYG{o}{\PYGZlt{}}\PYG{n}{uchar}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{)} \PYG{o}{=} \PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{n}{j}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{255}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{!=} \PYG{n}{colorimg}\PYG{p}{.}\PYG{n}{rows}\PYG{p}{;} \PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{!=} \PYG{n}{colorimg}\PYG{p}{.}\PYG{n}{cols}\PYG{p}{;} \PYG{o}{++}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+      \PYG{n}{cv}\PYG{o}{::}\PYG{n}{Vec3b} \PYG{n}{pixel}\PYG{p}{;}
+      \PYG{n}{pixel}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{i} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{255}\PYG{p}{;}
+      \PYG{n}{pixel}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{j} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{255}\PYG{p}{;}
+      \PYG{n}{pixel}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+      \PYG{n}{colorimg}\PYG{p}{.}\PYG{n}{at}\PYG{o}{\PYGZlt{}}\PYG{n}{cv}\PYG{o}{::}\PYG{n}{Vec3b}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{)} \PYG{o}{=} \PYG{n}{pixel}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{namedWindow}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}grayimg\PYGZdq{}}\PYG{p}{,} \PYG{n}{cv}\PYG{o}{::}\PYG{n}{WINDOW\PYGZus{}AUTOSIZE}\PYG{p}{);}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{imshow}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}grayimg\PYGZdq{}}\PYG{p}{,} \PYG{n}{grayimg}\PYG{p}{);}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{namedWindow}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}colorimg\PYGZdq{}}\PYG{p}{,} \PYG{n}{cv}\PYG{o}{::}\PYG{n}{WINDOW\PYGZus{}AUTOSIZE}\PYG{p}{);}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{imshow}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}colorimg\PYGZdq{}}\PYG{p}{,} \PYG{n}{colorimg}\PYG{p}{);}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{waitKey}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+
+  \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

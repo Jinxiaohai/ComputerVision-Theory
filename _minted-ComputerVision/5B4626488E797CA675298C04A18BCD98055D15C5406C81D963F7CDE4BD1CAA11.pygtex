@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{n}{mat} \PYG{o}{=} \PYG{n}{cv}\PYG{o}{::}\PYG{n}{imread}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/home/xiaohai/Pictures/test.jpeg\PYGZdq{}}\PYG{p}{);}
+\PYG{n}{cv}\PYG{o}{::}\PYG{n}{cvtColor}\PYG{p}{(}\PYG{n}{mat}\PYG{p}{,} \PYG{n}{mat}\PYG{p}{,} \PYG{n}{CV\PYGZus{}BGR2RGB}\PYG{p}{);}
+\PYG{n}{QImage} \PYG{n+nf}{image}\PYG{p}{(}\PYG{n}{mat}\PYG{p}{.}\PYG{n}{data}\PYG{p}{,} \PYG{n}{mat}\PYG{p}{.}\PYG{n}{cols}\PYG{p}{,} \PYG{n}{mat}\PYG{p}{.}\PYG{n}{rows}\PYG{p}{,} \PYG{n}{mat}\PYG{p}{.}\PYG{n}{step}\PYG{p}{,} \PYG{n}{QImage}\PYG{o}{::}\PYG{n}{Format\PYGZus{}RGB888}\PYG{p}{);}
+\end{Verbatim}

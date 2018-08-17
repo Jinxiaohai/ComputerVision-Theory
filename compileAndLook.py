@@ -12,10 +12,10 @@ import subprocess
 
 def main():
     subprocess.call(('make', 'clean'))
-    subprocess.call(('xelatex', 'ComputerVision.tex'))
-    subprocess.call(('bibtex',  'ComputerVision.aux'))
-    subprocess.call(('xelatex', 'ComputerVision.tex'))
-    subprocess.call(('xelatex', 'ComputerVision.tex'))
+    subprocess.call(('xelatex', '-shell-escape', 'ComputerVision.tex'))
+    subprocess.call(('bibtex', '-shell-escape', 'ComputerVision.aux'))
+    subprocess.call(('xelatex', '-shell-escape', 'ComputerVision.tex'))
+    subprocess.call(('xelatex', '-shell-escape', 'ComputerVision.tex'))
     subprocess.call(('evince',  'ComputerVision.pdf'))
 
 if __name__ == '__main__':

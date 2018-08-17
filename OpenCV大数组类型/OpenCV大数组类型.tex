@@ -1,0 +1,166 @@
+\chapter{OpenCV大数组类型}
+在OpenCV中，cv::Mat类被用来表示任何维度的密度矩阵，%
+其中cv::Mat针对的是密集连续型的存储，%
+大多数的图型数据都是被保存为这种类型，%
+即使数据为空，%
+预留的存储空间仍然存在。
+
+\section{Mat内存布局}
+对于一维的矩阵，其元素可以被认为是连续存储的。%
+对于二维的矩阵，其数据是按行进行存储的，%
+对于三维的矩阵，其中每个平面是是按行进行排列，%
+然后每个平面进行排列。
+
+Mat类包含一个公有的\textbf{\color{magenta}flags}数据成员标识数据的内容，%
+\textbf{\color{magenta}dims}来标识矩阵的维度，%
+\textbf{\color{magenta}rows}和\textbf{\color{magenta}cols}
+标识矩阵的行数和列数(对于dims>2的矩阵，这两个数据成员不可用)，%
+\textbf{\color{magenta}data}用来表示数据存储的首地址，%
+\textbf{\color{magenta}refcount}表示其指针\textbf{\color{magenta}cv::Ptr<>}引用的次数，%
+其中cv::Ptr<>的行为类似于C++中的智能指针。%
+对于data中的数据布局可以通过矩阵的\textbf{\color{magenta}step[~]}进行描述，%
+对于索引为$(i_{0},i_{1},\dots,i_{N_{d}-1})$的元素，%a
+其地址可以表示为：
+\begin{equation}
+  \begin{split}
+    \&\left(mtx_{i_{0},i_{1},\dots,i_{N_{d}-1},N_{d}}\right) & = mtx.data + mtx.step[0]*i_{0}
+    + mtx.step[1]*i_{1} \\
+    & + \cdots + mtx.step[N_{d}-1]*i_{N_{d}-1}
+  \end{split}
+\end{equation}
+对于二维的简单情形可以表示为：
+\begin{equation}
+  \&(mtx_{i,j}) = mtx.data + mtx.step[0]*i + mtx.step[1]*j
+\end{equation}
+
+\section{Mat数据访问方式}
+对于Mat中的数据，最直接的访问方式是使用模板函数\textbf{\color{magenta}at$<>$()}。%
+例如：
+\begin{cppcode}
+  cv::Mat m = cv::Mat::eye(10, 10, 32FC1);
+  std::cout << "Element (3,3) is "
+            << m.at<float>(3,3) << std::endl;
+\end{cppcode}
+
+对于多通道矩阵，对于每个像素(element)的访问形式最简单就是使用cv::Vec$<>$，如：
+\begin{cppcode}
+  cv::Mat m = cv::Mat::eye(10, 10, 32FC2);
+  printf(
+    "Element (3,3) is (\%f,\%f)\n",
+    m.at<cv::Vec2f>(3,3)[0],
+    m.at<cv::Vec2f>(3,3)[1]
+    );
+\end{cppcode}
+          
+完整的例子如下：
+\begin{cppcode}
+  #include <iostream>
+  #include "opencv2/opencv.hpp"
+
+  int main(int argc, char *argv[]){
+    cv::Mat grayimg(600, 800, CV_8UC1);
+    cv::Mat colorimg(600, 800, CV_8UC3);
+
+    for (int i = 0; i != grayimg.rows; ++i){
+      for(int j = 0; j != grayimg.cols; ++j){
+        grayimg.at<uchar>(i, j) = (i+j)%255;
+      }
+    }
+
+    for (int i = 0; i != colorimg.rows; ++i){
+      for (int j = 0; j != colorimg.cols; ++j){
+        cv::Vec3b pixel;
+        pixel[0] = i % 255;
+        pixel[1] = j % 255;
+        pixel[2] = 0;     
+        colorimg.at<cv::Vec3b>(i, j) = pixel;
+      }
+    }
+
+    cv::namedWindow("grayimg", cv::WINDOW_AUTOSIZE);
+    cv::imshow("grayimg", grayimg);
+    cv::namedWindow("colorimg", cv::WINDOW_AUTOSIZE);
+    cv::imshow("colorimg", colorimg);
+    cv::waitKey(0);
+    
+    return 0;
+  }
+\end{cppcode}
+同样的我们也可以使用指针形式的访问，%
+注意因为Mat中的数据并不一定是连续存储的，%
+所以我们只能获取每行的指针。%
+如：
+\begin{cppcode}
+  #include <cmath>
+  #include <iostream>
+  #include "opencv2/opencv.hpp"
+  
+  int main(int argc, char *argv[]){
+    cv::Mat grayimg(600, 800, CV_8UC1);
+    cv::Mat colorimg(600, 800, CV_8UC3);
+    
+    for (int i = 0; i != grayimg.rows; ++i){
+      /*! 获取第i行的首地址 */
+      uchar *p = grayimg.ptr<uchar>(i);
+      for (int j = 0; j != grayimg.cols; ++j){
+        p[j] = (i+j)%255;
+      }
+    }
+
+    for(int i = 0; i != colorimg.rows; ++i){
+      /*! 获取第i行的首地址 */
+      cv::Vec3b *p = colorimg.ptr<cv::Vec3b>(i);
+      for (int j = 0; j != colorimg.cols; ++j){
+        p[j][0] = i % 255; /*!< Blue */
+        p[j][1] = j % 255; /*!< Green */
+        p[j][2] = std::abs(i-j) % 255; /*!< Red */
+      }
+    }
+    
+    cv::imshow("grayimg", grayimg);
+    cv::imshow("colorimg", colorimg);
+    
+    cv::waitKey(0);
+    
+    return 0;
+  } 
+\end{cppcode}
+
+在OpenCV中同时提供了类似于C++标准库中的迭代器，%
+我们同样的使用的这种方式进行访问元素：
+\begin{cppcode}
+  #include <iostream>
+  #include "opencv2/opencv.hpp"
+
+  int main(int argc, char *argv[]){
+    cv::Mat grayimg(600, 800, CV_8UC1);
+    cv::Mat colorimg(600, 800, CV_8UC3);
+
+    /*! loop gray image */
+    for (cv::MatIterator_<uchar> iter = grayimg.begin<uchar>();
+    iter != grayimg.end<uchar>();
+    ++iter){
+      *iter = rand() % 255;
+    }
+
+    /*! loop color image */
+    for (cv::MatIterator_<cv::Vec3b> iter = colorimg.begin<cv::Vec3b>();
+    iter != colorimg.end<cv::Vec3b>();
+    ++iter){
+      (*iter)[0] = rand() % 123;
+      (*iter)[1] = rand() % 255;
+      (*iter)[2] = rand() % 255;
+    }
+
+    cv::imshow("grayimg", grayimg);
+    cv::imshow("colorimg", colorimg);
+
+    cv::waitKey(0);
+    return 0;
+  }
+\end{cppcode}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
