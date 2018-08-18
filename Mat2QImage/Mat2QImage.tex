@@ -24,8 +24,8 @@ QImage类提供了可以直接从Mat对象创建图片的构造函数，%
 如下面的例子：
 \begin{cppcode}
   cv::Mat mat = cv::imread("/home/xiaohai/Pictures/test.jpeg");
-  cv::cvtColor(mat, mat, CV_BGR2RGB);
-  QImage image(mat.data, mat.cols, mat.rows, QImage::Format_RGB888);
+  cv::cvtColor(mat, mat, cv::COLOR_BGR2RGB);
+  QImage image((const uchar *)mat.data, mat.cols, mat.rows, QImage::Format_RGB888);
 \end{cppcode}
 其中cv::cvtColor()函数可以完成图像彩色空间的转换。
 
@@ -35,21 +35,35 @@ QImage类提供了可以直接从Mat对象创建图片的构造函数，%
 而该参数的值就是Mat对象中的\textbf{\color{magenta}step}值，%
 完整的例子如下：
 \begin{cppcode}
-  cv::Mat mat = cv::imread("/home/xiaohai/Pictures/test.jpeg");
-  cv::cvtColor(mat, mat, CV_BGR2RGB);
-  QImage image(mat.data, mat.cols, mat.rows, mat.step, QImage::Format_RGB888);
+  QImage Mat2QImage(const cv::Mat &src)
+  {
+    //! make the same cv::Mat
+    cv::Mat temp;
+    //! cvtColor Makes a copt, that what i need
+    cv::cvtColor(src, temp, cv::COLOR_BGR2RGB);
+    QImage dest((const uchar *)temp.data, temp.cols, temp.rows, temp.step, QImage::Format_RGB888);
+    //! enforce deep copy, see documentation
+    dest.bits();
+
+    return dest;
+  }
 \end{cppcode}
+
 
 \subsection{QImage对象转Mat对象}
 QImage类包含大量的成员函数，%
 这些大量的成员函数可以完成图像的操作和处理，%
 如将QImage对象转换称Mat对象，
 \begin{cppcode}
-  QImage image("/home/xiaohai/Pictures/test.jpeg");
-  image = image.convertToFormat(QImage::Format_RGB888);
-  Mat mat = Mat(image.height(), image.width(), CV_8UC3, image.bits(), image.bytesPerLine());
+  cv::Mat QImage2Mat(const QImage &src)
+  {
+    cv::Mat tmp(src.height(), src.width(), CV_8UC3, (uchar *)src.bits(), src.bytesPerLine());
+    //! deep copy just in case (my lack of knowledge with open cv)
+    cv::Mat result;
+    cv::cvtColor(tmp, result, cv::COLOR_RGB2BGR);
+    return result;
+  }
 \end{cppcode}
-
 
 
 %%% Local Variables:

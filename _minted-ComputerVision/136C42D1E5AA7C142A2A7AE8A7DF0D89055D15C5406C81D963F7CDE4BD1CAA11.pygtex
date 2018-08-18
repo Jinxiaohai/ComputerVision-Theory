@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{n}{QImage2Mat}\PYG{p}{(}\PYG{k}{const} \PYG{n}{QImage} \PYG{o}{\PYGZam{}}\PYG{n}{src}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{n}{tmp}\PYG{p}{(}\PYG{n}{src}\PYG{p}{.}\PYG{n}{height}\PYG{p}{(),} \PYG{n}{src}\PYG{p}{.}\PYG{n}{width}\PYG{p}{(),} \PYG{n}{CV\PYGZus{}8UC3}\PYG{p}{,} \PYG{p}{(}\PYG{n}{uchar} \PYG{o}{*}\PYG{p}{)}\PYG{n}{src}\PYG{p}{.}\PYG{n}{bits}\PYG{p}{(),}
+  \PYG{n}{src}\PYG{p}{.}\PYG{n}{bytesPerLine}\PYG{p}{());}
+  \PYG{c+c1}{//! deep copy just in case (my lack of knowledge with open cv)}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{n}{result}\PYG{p}{;}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{cvtColor}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{,} \PYG{n}{result}\PYG{p}{,} \PYG{n}{cv}\PYG{o}{::}\PYG{n}{COLOR\PYGZus{}RGB2BGR}\PYG{p}{);}
+  \PYG{k}{return} \PYG{n}{result}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

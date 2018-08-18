@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{QImage} \PYG{n+nf}{Mat2QImage}\PYG{p}{(}\PYG{k}{const} \PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{o}{\PYGZam{}}\PYG{n}{src}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+  \PYG{c+c1}{//! make the same cv::Mat}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{Mat} \PYG{n}{temp}\PYG{p}{;}
+  \PYG{c+c1}{//! cvtColor Makes a copt, that what i need}
+  \PYG{n}{cv}\PYG{o}{::}\PYG{n}{cvtColor}\PYG{p}{(}\PYG{n}{src}\PYG{p}{,} \PYG{n}{temp}\PYG{p}{,} \PYG{n}{cv}\PYG{o}{::}\PYG{n}{COLOR\PYGZus{}BGR2RGB}\PYG{p}{);}
+  \PYG{n}{QImage} \PYG{n}{dest}\PYG{p}{((}\PYG{k}{const} \PYG{n}{uchar} \PYG{o}{*}\PYG{p}{)}\PYG{n}{temp}\PYG{p}{.}\PYG{n}{data}\PYG{p}{,} \PYG{n}{temp}\PYG{p}{.}\PYG{n}{cols}\PYG{p}{,} \PYG{n}{temp}\PYG{p}{.}\PYG{n}{rows}\PYG{p}{,} \PYG{n}{temp}\PYG{p}{.}\PYG{n}{step}\PYG{p}{,}
+  \PYG{n}{QImage}\PYG{o}{::}\PYG{n}{Format\PYGZus{}RGB888}\PYG{p}{);}
+  \PYG{c+c1}{//! enforce deep copy, see documentation}
+  \PYG{n}{dest}\PYG{p}{.}\PYG{n}{bits}\PYG{p}{();}
+
+  \PYG{k}{return} \PYG{n}{dest}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
